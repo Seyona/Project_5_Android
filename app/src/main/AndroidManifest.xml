@@ -21,7 +21,10 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".EGG_ACTION"></activity>
+        <intent-filter>
+            <action android:name="com.example.home.project_5.EGG_NUMBER_MODIFICATION">
+            </action>
+        </intent-filter>
     </application>
 
 </manifest>

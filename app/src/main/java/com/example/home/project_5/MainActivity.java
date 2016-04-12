@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void modify_Eggs(int magnitude) {
+    public void modify_Eggs(int magnitude, boolean is_breakfast) {
         int current_eggs = prefs.getInt(EGGS_IN_BASKET, 0);
         Log.e("Current Eggs in Basket", "" + current_eggs);
         SharedPreferences.Editor edit = prefs.edit();
@@ -73,30 +73,29 @@ public class MainActivity extends AppCompatActivity {
         Log.e("Eggs after mag shift", "" + new_eggs);
 
 
-        Intent egg_Action = new Intent(this,EGG_ACTION.class);
+        Intent egg_Action = new Intent();
+        egg_Action.setAction("com.example.home.project_5.EGG_NUMBER_MODIFICATION");
+        egg_Action.putExtra("Breakfast?",is_breakfast);
         egg_Action.putExtra("Eggs",new_eggs);
-        startActivity(egg_Action);
+        //startActivity(egg_Action);
+        sendBroadcast(egg_Action);
 
     }
 
     public void addOneEgg(View view) {
-        modify_Eggs(1);
+        modify_Eggs(1,false);
     }
 
     public void addTwoEgg(View view) {
-        modify_Eggs(2);
+        modify_Eggs(2,false);
     }
 
     public void removeEgg(View view) {
-        modify_Eggs(-1);
+        modify_Eggs(-1,false);
     }
 
     public void make_breakfast(View view) {
-        if (prefs.getInt(EGGS_IN_BASKET,0) >= 6) {
-            /** WE ARE HAVIN OMELETS*/
-        } else {
-            /** MEH GRUEL IT IS */
-        }
+        modify_Eggs(0,true);
     }
 
 
