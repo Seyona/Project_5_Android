@@ -9,8 +9,44 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.home.project_5.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <Button
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="@string/egg_add_one"
+        android:id="@+id/button"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp"
+        android:onClick="addOneEgg"/>
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/egg_add_two"
+        android:id="@+id/button2"
+        android:layout_below="@+id/button"
+        android:layout_alignStart="@+id/button"
+        android:layout_marginTop="20dp"
+        android:onClick="addTwoEgg"/>
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/egg_remove_one"
+        android:id="@+id/button3"
+        android:layout_below="@+id/button2"
+        android:layout_alignStart="@+id/button2"
+        android:layout_marginTop="20dp"
+        android:onClick="removeEgg"/>
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/make_breakfast"
+        android:id="@+id/button4"
+        android:layout_below="@+id/button3"
+        android:layout_alignStart="@+id/button3"
+        android:layout_marginTop="20dp"
+        android:onClick="make_breakfast"/>
+
 </RelativeLayout>

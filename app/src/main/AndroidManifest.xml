@@ -15,6 +15,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver
+            android:name=".Egg_receiver"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".EGG_ACTION"></activity>
     </application>
 
 </manifest>

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Project_5</string>
+    <string name="egg_add_one">Add one egg</string>
+    <string name="egg_add_two">Add two eggs</string>
+    <string name="egg_remove_one">Remove one egg</string>
+    <string name="make_breakfast">Make Breakfast</string>
 </resources>
