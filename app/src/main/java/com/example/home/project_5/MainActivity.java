@@ -66,10 +66,15 @@ public class MainActivity extends AppCompatActivity {
     public void modify_Eggs(int magnitude, boolean is_breakfast) {
         int current_eggs = prefs.getInt(EGGS_IN_BASKET, 0);
         Log.e("Current Eggs in Basket", "" + current_eggs);
-        SharedPreferences.Editor edit = prefs.edit();
+
         int new_eggs = current_eggs + magnitude;
-        edit.putInt(EGGS_IN_BASKET, new_eggs);
-        edit.apply();
+
+        if (magnitude != 0) {
+            SharedPreferences.Editor edit = prefs.edit();
+            edit.putInt(EGGS_IN_BASKET, new_eggs);
+            edit.apply();
+        }
+
         Log.e("Eggs after mag shift", "" + new_eggs);
 
 
