@@ -29,7 +29,7 @@ public class Egg_receiver extends BroadcastReceiver {
 
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context);
         mBuilder.setSmallIcon(R.drawable.notification);
-        int mNotificationId = 000;
+        int mNotificationId;
 
         String out = "";
         if (is_breakfast) {
@@ -60,6 +60,6 @@ public class Egg_receiver extends BroadcastReceiver {
 
         mNotifyMgr.notify(mNotificationId,mBuilder.build());
 
-        throw new UnsupportedOperationException("Not yet implemented");
+      //  throw new UnsupportedOperationException("Not yet implemented");
     }
 }
