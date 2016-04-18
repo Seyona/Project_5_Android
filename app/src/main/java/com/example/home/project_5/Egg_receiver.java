@@ -58,6 +58,7 @@ public class Egg_receiver extends BroadcastReceiver {
 
         }
         mBuilder.setContentText(out);
+        mBuilder.setContentIntent(null);
 
         NotificationManager mNotifyMgr =
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
