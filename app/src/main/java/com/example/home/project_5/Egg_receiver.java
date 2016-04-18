@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.NotificationCompat;
+import android.util.Log;
 
 public class Egg_receiver extends BroadcastReceiver {
     public Egg_receiver() {
@@ -40,9 +41,12 @@ public class Egg_receiver extends BroadcastReceiver {
 
                 out= "We are having omelets, we have "+ eggs_in_basket +" eggs\n" +
                         "available.";
+
                 SharedPreferences.Editor edit = prefs.edit();
                 edit.putInt(EGGS_IN_BASKET,eggs_in_basket); //store new total
                 edit.apply();
+
+                Log.e("Number_of_Eggs_af_Bfast",""+prefs.getString(EGGS_IN_BASKET,""));
             } else { // IT'S TIME TO GGGGG-GRUEL
                 out = "We are having gruel, we have " + eggs_in_basket + " eggs available.";
             }
@@ -57,6 +61,7 @@ public class Egg_receiver extends BroadcastReceiver {
 
         NotificationManager mNotifyMgr =
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+
 
         mNotifyMgr.notify(mNotificationId,mBuilder.build());
 

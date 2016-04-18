@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         int current_eggs = prefs.getInt(EGGS_IN_BASKET, 0);
         Log.e("Current Eggs in Basket", "" + current_eggs);
 
-        int new_eggs = current_eggs + magnitude;
+        int new_eggs = (current_eggs == 0)? 0 : current_eggs + magnitude;
 
         if (magnitude != 0) {
             SharedPreferences.Editor edit = prefs.edit();
