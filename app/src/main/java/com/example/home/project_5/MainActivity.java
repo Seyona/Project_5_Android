@@ -79,7 +79,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         Intent egg_Action = new Intent();
+
         egg_Action.setAction("com.example.home.project_5.EGG_NUMBER_MODIFICATION");
+        egg_Action.setClass(this, Egg_receiver.class);
         egg_Action.putExtra("Breakfast?",is_breakfast);
         egg_Action.putExtra("Eggs",new_eggs);
         //startActivity(egg_Action);

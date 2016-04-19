@@ -22,6 +22,8 @@ public class Egg_receiver extends BroadcastReceiver {
         // TODO: This method is called when the BroadcastReceiver is receiving
         // an Intent broadcast.
 
+        Log.e("RecieverStatus","Entered");
+
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
         Bundle items = intent.getExtras();
 
@@ -46,7 +48,16 @@ public class Egg_receiver extends BroadcastReceiver {
                 edit.putInt(EGGS_IN_BASKET,eggs_in_basket); //store new total
                 edit.apply();
 
-                Log.e("Number_of_Eggs_af_Bfast",""+prefs.getString(EGGS_IN_BASKET,""));
+                Log.e("Number_of_Eggs_af_Bfast",""+prefs.getInt(EGGS_IN_BASKET,0));
+
+                Intent egg_Action = new Intent();
+
+                egg_Action.setAction("com.example.home.project_5.EGG_NUMBER_MODIFICATION");
+                egg_Action.setClass(context, Egg_receiver.class);
+                egg_Action.putExtra("Breakfast?", false);
+                egg_Action.putExtra("Eggs", eggs_in_basket);
+                context.sendBroadcast(egg_Action);
+
             } else { // IT'S TIME TO GGGGG-GRUEL
                 out = "We are having gruel, we have " + eggs_in_basket + " eggs available.";
             }
@@ -54,7 +65,7 @@ public class Egg_receiver extends BroadcastReceiver {
             // Send notification with current # of eggs
             mBuilder.setContentTitle("Current Eggs in basket");
             mNotificationId = 002;
-            out = "We have "+ eggs_in_basket + "available";
+            out = "We have "+ eggs_in_basket + " available";
 
         }
         mBuilder.setContentText(out);
@@ -65,6 +76,7 @@ public class Egg_receiver extends BroadcastReceiver {
 
 
         mNotifyMgr.notify(mNotificationId,mBuilder.build());
+        Log.e("RecieverStatus", "Exiting");
 
       //  throw new UnsupportedOperationException("Not yet implemented");
     }
