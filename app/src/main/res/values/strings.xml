@@ -4,4 +4,12 @@
     <string name="egg_add_two">Add two eggs</string>
     <string name="egg_remove_one">Remove one egg</string>
     <string name="make_breakfast">Make Breakfast</string>
+
+
+    <string name="intent_add_one">com.example.home.project_5.EGG_ADD_ONE</string>
+    <string name="intent_add_two">com.example.home.project_5.EGG_ADD_TWO</string>
+    <string name="intent_remove_one">com.example.home.project_5.EGG_REMOVE_ONE</string>
+    <string name="intent_make_breakfast">com.example.home.project_5.EGG_MAKE_BREAKFAST</string>
+    <string name="intent_update">com.example.home.project_5.EGG_OMELETS_MADE</string>
+
 </resources>

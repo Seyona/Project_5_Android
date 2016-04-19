@@ -16,13 +16,41 @@
             </intent-filter>
         </activity>
 
+
+        <service
+            android:enabled="true"
+            android:name=".Egg_service">
+            <intent-filter>
+                <action
+                    android:name="com.example.home.project_5.EGG_NUMBER_MODIFICATION">
+                </action>
+                <action android:name="com.example.home.project_5.EGG_ADD_ONE">
+                </action>
+                <action android:name="com.example.home.project_5.EGG_ADD_TWO">
+                </action>
+                <action android:name="com.example.home.project_5.EGG_REMOVE_ONE">
+                </action>
+                <action android:name="com.example.home.project_5.EGG_MAKE_BREAKFAST">
+                </action>
+            </intent-filter>
+        </service>
+
         <receiver
             android:name=".Egg_receiver"
             android:enabled="true"
             android:exported="true" />
 
         <intent-filter>
-            <action android:name="com.example.home.project_5.EGG_NUMBER_MODIFICATION">
+            <action
+                android:name="com.example.home.project_5.EGG_NUMBER_MODIFICATION">
+            </action>
+            <action android:name="com.example.home.project_5.EGG_ADD_ONE">
+            </action>
+            <action android:name="com.example.home.project_5.EGG_ADD_TWO">
+            </action>
+            <action android:name="com.example.home.project_5.EGG_REMOVE_ONE">
+            </action>
+            <action android:name="com.example.home.project_5.EGG_MAKE_BREAKFAST">
             </action>
         </intent-filter>
     </application>

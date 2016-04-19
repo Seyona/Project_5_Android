@@ -90,19 +90,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addOneEgg(View view) {
-        modify_Eggs(1,false);
+        //modify_Eggs(1,false);
+        sendBroadcast(new Intent(getString(R.string.intent_add_one)).setClass(this, Egg_receiver.class));
     }
 
     public void addTwoEgg(View view) {
-        modify_Eggs(2,false);
+        //modify_Eggs(2,false);
+        sendBroadcast(new Intent(getString(R.string.intent_add_two)).setClass(this, Egg_receiver.class));
     }
 
     public void removeEgg(View view) {
-        modify_Eggs(-1,false);
+        //modify_Eggs(-1,false);
+        sendBroadcast(new Intent(getString(R.string.intent_remove_one)).setClass(this, Egg_receiver.class));
     }
 
     public void make_breakfast(View view) {
-        modify_Eggs(0,true);
+        //modify_Eggs(0,true);
+        sendBroadcast(new Intent(getString(R.string.intent_make_breakfast)).setClass(this, Egg_receiver.class));
     }
 
 

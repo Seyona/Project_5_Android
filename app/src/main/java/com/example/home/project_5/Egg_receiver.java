@@ -24,8 +24,48 @@ public class Egg_receiver extends BroadcastReceiver {
 
         Log.e("RecieverStatus","Entered");
 
-        prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        Bundle items = intent.getExtras();
+        //prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        //Bundle items = intent.getExtras();
+
+        //Context.startService(Intent);
+
+
+        String intent_name = intent.getAction();
+        Intent out = new Intent();
+        out.setAction(intent_name);
+        out.setClass(context,Egg_service.class);
+
+        if (intent_name.equals(context.getString(R.string.intent_add_one))) {
+            Log.e("Button","ADD EGG");
+            out.putExtra("Eggs",1);
+
+        }
+        else if (intent_name.equals(context.getString(R.string.intent_add_two))) {
+            Log.e("Button","ADD 2 EGG");
+            out.putExtra("Eggs", 2);
+
+        }
+        else if (intent_name.equals(context.getString(R.string.intent_remove_one))) {
+            Log.e("Button","REMOVE EGG");
+            out.putExtra("Eggs",-1);
+
+        } else if (intent_name.equals(context.getString(R.string.intent_make_breakfast))) { //make breakfast
+            Log.e("Button","BREAKFAST");
+            out.putExtra("Breakfast",true);
+        } else { //needs to update a notification
+            Log.e("Button","UPDATE NOTIFICATION");
+            out.putExtra("Update",true);
+        }
+
+        Log.e("Intent Action", intent_name);
+        context.startService(out);
+
+        Log.e("RecieverStatus", "Exit");
+
+
+
+
+/*
 
         boolean is_breakfast = items.getBoolean("Breakfast?");
         int eggs_in_basket = items.getInt("Eggs");
@@ -79,5 +119,6 @@ public class Egg_receiver extends BroadcastReceiver {
         Log.e("RecieverStatus", "Exiting");
 
       //  throw new UnsupportedOperationException("Not yet implemented");
+      */
     }
 }
