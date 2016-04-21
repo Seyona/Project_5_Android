@@ -34,7 +34,7 @@ public class Egg_service extends Service {
         mBuilder.setSmallIcon(R.drawable.notification);
         int mNotificationId;
 
-        String out;
+        String out ="";
 
         Log.e("Breakfast",""+is_Breakfast);
 
@@ -66,10 +66,13 @@ public class Egg_service extends Service {
             mNotificationId = 002;
 
             if (intent.getAction().equals(getBaseContext().getString(R.string.intent_add_one))) {
+                out = "1 Egg has been added. ";
                 current_eggs += 1;
             } else if (intent.getAction().equals(getBaseContext().getString(R.string.intent_add_two))){
+                out = "2 Eggs have been added. ";
                 current_eggs += 2;
-            } else { // remove one
+            } else if (intent.getAction().equals(getBaseContext().getString(R.string.intent_remove_one))){ // remove one
+                out = "1 Egg has been removed. ";
                 current_eggs = (current_eggs - 1 < 0)? 0 : current_eggs - 1;
             }
 
@@ -77,7 +80,7 @@ public class Egg_service extends Service {
             edit.putInt(EGGS_IN_BASKET, current_eggs); //store new total
             edit.apply();
 
-            out = "We have "+ current_eggs + " eggs available";
+            out += "We have "+ current_eggs + " eggs available";
 
         }
 
